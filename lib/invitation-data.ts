@@ -1,3 +1,11 @@
+/**
+ * Data dummy undangan. Ganti semua nilai sebelum dipakai sungguhan.
+ *
+ * Aturan waktu: startsAt / endsAt ditulis ISO 8601 lengkap dengan offset zona
+ * waktu (+07:00 = WIB). Dari sini countdown, tanggal di hero, dan file
+ * kalender (.ics) dihitung, jadi tanggal cukup diubah di satu tempat.
+ * Field `date` dan `time` hanya teks tampilan, tulis manual sesuai gaya yang diinginkan.
+ */
 export const invitationData = {
   couple: {
     first: {
@@ -14,30 +22,29 @@ export const invitationData = {
     },
   },
 
-  weddingDate: new Date("2025-06-15"),
-
+  // Acara pertama (events[0]) dipakai untuk countdown, tanggal hero, dan lokasi utama.
   events: [
     {
       id: "akad",
       title: "Akad Nikah",
-      date: "15 Juni 2025",
+      date: "12 Desember 2026",
       time: "09:00 - 10:30 WIB",
+      startsAt: "2026-12-12T09:00:00+07:00",
+      endsAt: "2026-12-12T10:30:00+07:00",
       venue: "Masjid Agung Al-Amal",
       address: "Jl. Gatot Subroto No. 42, Jakarta Selatan 12930",
-      mapLink:
-        "https://www.google.com/maps/place/-6.2461,106.7944/@-6.2461,106.7944,15z",
       latitude: -6.2461,
       longitude: 106.7944,
     },
     {
       id: "resepsi",
       title: "Resepsi Pernikahan",
-      date: "15 Juni 2025",
+      date: "12 Desember 2026",
       time: "12:00 - 17:00 WIB",
+      startsAt: "2026-12-12T12:00:00+07:00",
+      endsAt: "2026-12-12T17:00:00+07:00",
       venue: "Ballroom Emerald City Hotel",
       address: "Jl. Sudirman No. 88, Jakarta Pusat 10220",
-      mapLink:
-        "https://www.google.com/maps/place/-6.2149,106.8113/@-6.2149,106.8113,15z",
       latitude: -6.2149,
       longitude: 106.8113,
     },
@@ -62,7 +69,8 @@ export const invitationData = {
     },
   ],
 
-  musicUrl: "/placeholder.jpg", // Replace with actual audio URL
+  // Taruh file audio di public/audio/. Kalau file belum ada, tombol musik otomatis tidak muncul.
+  musicUrl: "/audio/wedding-theme.mp3",
 }
 
 export type InvitationData = typeof invitationData
